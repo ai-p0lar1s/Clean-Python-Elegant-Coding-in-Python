@@ -4,7 +4,7 @@
 * 译者：连少华
 
 ## 目录
-### 1. 关于 Python 的思考
+### [1. 关于 Python 的思考](https://github.com/ai-p0lar1s/Clean-Python-Elegant-Coding-in-Python/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%85%B3%E4%BA%8E%20Python%20%E7%9A%84%E6%80%9D%E8%80%83.md)
 ### 2. 数据结构
 ### 3. 编写更好的函数和类
 ### 4. 使用模块和元类
