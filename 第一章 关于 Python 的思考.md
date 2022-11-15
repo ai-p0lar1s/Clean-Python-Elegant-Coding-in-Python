@@ -10,7 +10,7 @@
 
 #### 1. 变量和函数
 * 使用小写字母命名变量和函数，并且用下划线分割单词
-    ```
+    ``` Python
     names = "Python"
     job_title = "Software Engineeer"
     
@@ -18,21 +18,21 @@
         pass
     ```
 * 使用一个下划线为前缀命名私有变量（只是约定俗成，Pytyon 没有强制规定这样定义私有化）
-    ```
+    ``` Python
     self._books = {}
 
     def _get_data(self):
         pass
     ```
 * 使用两个下划线区分 Python 内置的变量、函数和方法
-    ```
+    ``` Python
     __dict = []
 
     def __path():
         pass
     ```
 * 使用具体（而不是模糊）的名称
-    ```
+    ``` Python
     # wrong 
     def get_user_info(id):
         pass
@@ -47,7 +47,7 @@
 
 #### 2. 类
 * 类的命名像其他语言一样，采用大驼峰方法
-    ```
+    ``` Python
     Class UserInformation:
         pass
     
@@ -57,7 +57,7 @@
 
 #### 3. 常量
 * 全部使用大写字母来定义常量名
-    ```
+    ``` Python
     TIMOUT = 6
     MAX_OVERFLOW = 7
     ```
@@ -70,7 +70,7 @@
 * 不要因为“巧妙”的编码方法，牺牲代码的可读性
     
     例：对嵌套字典进行排序
-    ```
+    ``` Python
     users = [
         {"first_name": "Helen", "age": 39},
         {"first_name": "Buck", "age": 10},
@@ -78,11 +78,11 @@
     ]
     ```
     比较“巧妙”的做法是：
-    ```
+    ``` Python
     users = sorted(users, key=lambda user: user["first_name"].lower())
     ```
     这样可以通过 lambda 节省代码行数，但它对于新手来说并不容易理解，且无法解决丢失键值或者字典合法性问题。一种更具可读性的方法是：
-    ```
+    ``` Python
     def get_user_name(users):
     """Get name of the user in lower case"""
         return users["first_name"].lower()
@@ -101,7 +101,7 @@
 * 将复杂代码分解成辅助函数有助于提高可读性，也更便于调试
 
     例：读取 csv 文件
-    ```
+    ``` Python
     import csv
 
     with open("employee.csv", "r") as csv_file:
@@ -113,7 +113,7 @@
         print(f'processed {line_count} lines.')
     ```
     上述代码在 with 语句里做了很多事情，为了使它更具可读性和便于调试，可以把处理逻辑放到一个不同的函数中。
-    ```
+    ``` Python
     import csv
 
     with open("employee.csv", "r") as csv_file:
@@ -133,7 +133,7 @@
 ### 1.1.3 拥抱 Python 编写代码的方式
 #### 1. 更偏向使用 join 而不是内置的字符串连接符
 * Python 字符串是不可更改的，使用 join 时，Python 对已经连接的字符串只分配一次内存，但是使用连接符「+」时，Python 不得不为每一次连接字符串分配新的内存。因此，在考虑代码性能时，尽量使用 join 方法，这样耗时更少。
-    ```
+    ``` Python
     first_name = "Json"
     last_name = "smart"
 
@@ -146,7 +146,7 @@
 
 #### 2. 在判断是否为 None 时使用 is 和 is not
 * 尽可能显式地编写代码，更好的可读性，更少地引发错误
-    ```
+    ``` Python
     # wrong way
     if val:
         pass
@@ -159,7 +159,7 @@
 
 #### 3. 更偏向使用 is not 而不是 not ... is
 * is not 可读性更好
-    ```
+    ``` Python
     # wrong way
     if not val is None:
         pass
@@ -171,7 +171,7 @@
 
 #### 4. 绑定标识符时考虑使用函数而不是 lambda 表达式
 * lambda 是 Python 实现一行代码的关键字，但有时候不是一个好的选择
-    ```
+    ``` Python
     # wrong way
     square = lambda x: x * x
 
@@ -187,7 +187,7 @@
 
 #### 6. 更偏向使用 "".startswith() 和 "".endswith()
 * 比切片操作更具可读性和更整洁
-    ```
+    ``` Python
     data = "Hello, how are you doing?"
 
     # wrong way
@@ -202,7 +202,7 @@
 #### 7. 比较类型时更偏向使用 isinstance() 方法而不是 type()
 * isinstance() 能识别继承关系，而 type() 返回的是对象的直接类型
 
-    ```
+    ``` Python
     user_ages = {"Larry": 35, "Jon": 89, "Imli": 12}
 
     # wrong way
@@ -215,7 +215,7 @@
     ```
 
 #### 8. 比较 Boolean 值的 Python 化方法
-    ```
+    ``` Python
     is_empty = False
 
     # wrong way
@@ -232,7 +232,7 @@
 
 #### 9. 为上下文管理器编写显示代码
 * 使用 with 语句编写代码时，考虑使用函数来处理不同于资源获取和释放的其他任何操作
-    ```
+    ``` Python
     # right way
     class NewProtocol:
         def __init__(self, host, port):
@@ -268,7 +268,7 @@
 
 * 四种不同的方式：
     *  谷歌
-    ```
+    ``` Python
     """Calling given url.
 
     Parameters:
@@ -279,7 +279,7 @@
     """
     ```
     *  Python 官方推荐
-    ```
+    ``` Python
     """Calling given url.
 
     :param url: Url to call.
@@ -289,7 +289,7 @@
     """
     ```
     *  NumPy / SciPy
-    ```
+    ``` Python
     """Calling given url.
 
     Parameters
@@ -304,7 +304,7 @@
     """
     ```
     *  Egytext
-    ```
+    ``` Python
     """Calling specific api.
 
     @type url: str
@@ -317,7 +317,7 @@
 
 ### 1.2.1 模块级文档字符串
 * 应该在文件的顶部（import 之前）放置一个模块级文档字符串来简要描述模块的用法。它应该关注模块的目标，包括模块里所有的方法和类，而不是描述一个特定的方法或者类。
-    ```
+    ``` Python
     """
     This module contains all of the network related requests. This
     module will check for all the exceptions while making the 
@@ -339,7 +339,7 @@
 ### 1.2.2 使类文档字符串具有描述性
 * 类文档字符串主要用于描述类的使用及其目标
     * 单行文档字符串
-    ```
+    ``` Python
     class Student:
     """This class handle actions performed by a student."""
 
@@ -347,7 +347,7 @@
             pass
     ```
     * 多行文档字符串
-    ```
+    ``` Python
     class Student:
     """Stduent class information.
 
@@ -368,7 +368,7 @@
 
 ### 1.2.3 函数文档字符串
 * 函数文档字符串可以写在函数之后或函数之前，主要关注描述函数的操作。如果没有使用 Python 类型标注，也可以考虑包含参数。
-    ```
+    ``` Python
     def is_prime_number(number):
         """Check for prime number.
 
@@ -395,7 +395,7 @@
 * Python 有多种方法可以从一个列表派生出另一个列表，如 map、filter 等。建议使用列表推导的方法，因为更具可读性。
 
     例 1：
-    ```
+    ``` Python
     numbers = [10, 45, 34, 89, 34, 23, 6]
 
     # 使用 map 的版本
@@ -405,7 +405,7 @@
     square_numbers = [num ** 2 for num in numbers]
     ```
     例 2：
-    ```
+    ``` Python
     data = [1, "A", 0, False, True]
 
     # 使用 filter 的版本
@@ -419,7 +419,7 @@
 
 ### 1.3.2 不要使用复杂的列表推导
 * 列表推导对于一个条件下最多两个循环时可行的，除此之外，反而会妨碍代码的可读性
-    ```
+    ``` Python
     # 使用列表推导实现矩阵转置 -> 可行
     matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     transposed = [[matrix[row][col] for row in range(3)] for col in range(3)]
@@ -432,7 +432,7 @@
 
 ### 1.3.3 应该使用 lambda 吗
 * 在 lambda 对表达式有帮助的地方使用 lambda，而不是用它替换函数的使用
-    ```
+    ``` Python
     data = [[7], [3], [0], [8], [1], [4]]
 
     # wrong way
@@ -453,7 +453,7 @@
     * 当需要列出方法来处理生成器中不可用的数据时
     * 当没有大量的数据可以重复，并且你认为把数据保存在内存中不是问题时
 * 一个使用生成器的例子：从文本文件中读取内容，且文件可能太大，一次性读取可能影响内存并使运行变慢
-    ```
+    ``` Python
     def read_file(file_name):
     """Read the file line by line."""
         with open(file_name) as fread:
@@ -466,7 +466,7 @@
 
 ### 1.3.5 为什么不要在循环中使用 else
 * 在 Python 中，for ... else 或 while ... else 结构只有当从循环中正常退出时，才会执行 else 子句，而中断关键字（break、raise 等）则不会执行 else子句。这样便于在循环结束后执行一个额外的操作，但是为了代码的可读性，还是避免使用它。
-    ```
+    ``` Python
     # wrong way
     for item in [1, 2, 3]:
         if item % 2 = 0:
@@ -494,7 +494,7 @@
 
 ### 1.3.6 为什么 range 函数在 Python 3 中更好
 * range 是一个不可变的迭代对象，只存储 start、stop 和 step 值，并根据需要计算值，对内存比较友好。
-    ```
+    ``` Python
     # wrong way
     for item in [0, 1, 2, 3, 4]:
         print(item)
@@ -509,7 +509,7 @@
 在 Python 中，异常由内置模块处理
 ### 1.4.1 习惯引发异常
 * 当代码失败时，在 Python 中更倾向于使用异常
-    ```
+    ``` Python
     # wrong way
     def division(dividend, divisor):
     """Perform arithmetic division."""
@@ -529,7 +529,7 @@
 
 ### 1.4.2 使用 finally 来处理异常
 * 在 Python 中，finally 块中的代码总是会被运行。在处理资源时，无论是否异常，都可以使用 finally 来确保关闭或释放文件或资源。
-    ```
+    ``` Python
     def write_file(file_name):
     """Read given file line by line."""
         my_file = open("file_name", "w")
@@ -541,7 +541,7 @@
 
 ### 1.4.3 创建自己的异常类
 * 需要确保自己创建的异常类有良好的边界并且是可描述的
-    ```
+    ``` Python
     class UserNotFoundError(Exception):
     """Raise the exception when user not found."""
         def __init__(self, message=None, errors=None):
@@ -551,7 +551,7 @@
 
 ### 1.4.4 只处理特定的异常
 * 捕获异常时，建议仅仅捕获特定异常，这有助于调试或诊断问题
-    ```
+    ``` Python
     # wrong way
     try:
         get_even_list(numbers)
@@ -572,7 +572,7 @@
 * 在调用第三方 API 时，了解第三方库引发的所有异常非常重要。如果认为一个异常不太适合你的场景，可以考虑创建自己的异常类。
 
     例：
-    ```
+    ``` Python
     from botocore.exceptions import ClientError
 
     ec2 = session.get_client('ec2', 'us-east-2')
@@ -595,7 +595,7 @@
 
 ### 1.4.6 try 最少的代码块
 * 可以在一行上使用不同的异常
-    ```
+    ``` Python
     def write_to_file(file_name, message):
     """write to file this specific message."""
         try:
@@ -606,7 +606,7 @@
             FileNotFoundException(f"Having issue while writing into file {exc}")
     ```
 * 最好在 try 中编写最少代码
-    ```
+    ``` Python
     # wrong way
     try:
         data = get_data_from_db(obj)
